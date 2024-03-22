@@ -1,6 +1,9 @@
 @extends('layout')
 @section ('sadrzajStranice')
-    <p>Ovo je shop stranica</p>
+    @foreach($products as $product)
+        {{$product->name}}
+        {{$product->amount}}
+    @endforeach
 @endsection
 
 @section('title')
