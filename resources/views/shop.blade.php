@@ -1,8 +1,11 @@
 @extends('layout')
 @section ('sadrzajStranice')
     @foreach($products as $product)
-        {{$product->name}}
-        {{$product->amount}}
+        <p> {{$product->name}} </p>
+    @endforeach
+
+    @foreach($phones as $phone)
+        <p> {{$phone}} </p>
     @endforeach
 @endsection
 

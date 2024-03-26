@@ -1,3 +1,4 @@
 @foreach($allContacts as $contact)
-   {{$contact->email}}
+   <p>{{$contact->email}}</p>
+   <p>{{$contact->message}}</p>
 @endforeach

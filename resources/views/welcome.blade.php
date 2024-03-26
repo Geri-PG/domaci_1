@@ -1,19 +1,31 @@
 @extends('layout')
-{{--<p>Trenutno vrijeme je <?= date('h:i:s')  ?></p>--}}
+
 @section ('sadrzajStranice')
 
     @if($time <= 12)
-        <p>Dobro jutro</p>
+        <p>Good morning</p>
     @else
-        <p>Dobar dan</p>
+        <p>Good day</p>
     @endif
 
-    <p>Trenutno je {{ $currentTime}}</p>
-    <p>Trenutno je {{  $time }}</p>
+    <p>Now is {{ $currentTime }}</p>
+    <p>Now is {{  $time }}</p>
 
     @foreach($lastProducts as $lastProduct)
         {{$lastProduct->name}}
     @endforeach
+
+    <form method="POST" action="/send-contact">
+        @if($errors->any)
+            <p>Error: {{$errors->first()}}</p>
+        @endif
+        @csrf
+        <input name="email" type="email" placeholder="Enter email">
+        <input name="subject" type="text" placeholder="Enter subject">
+        <textarea name="description"></textarea>
+        <button>Send message</button>
+    </form>
+
 @endsection
 
 @section('title')
