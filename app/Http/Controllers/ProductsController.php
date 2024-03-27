@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+
     public function addProduct(Request $request)
     {
         $request->validate([
@@ -18,14 +19,21 @@ class ProductsController extends Controller
         ]);
 
         ProductsModel::create([
-            'name'=>$request->get('name'),
-            'description'=>$request->get('description'),
-            'amount'=>$request->get('amount'),
-            'price'=>$request->get('price'),
-            'image'=>$request->get('image')
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'amount' => $request->get('amount'),
+            'price' => $request->get('price'),
+            'image' => $request->get('image')
         ]);
 
-        return view('products');
+        return redirect('/');
+
+    }
+
+    public function getAllProducts()
+    {
+        $allProducts = ProductsModel::all();
+        return view('products', compact('allProducts'));
 
     }
 }

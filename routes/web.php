@@ -17,6 +17,8 @@ Route::post("/send-contact", [\App\Http\Controllers\ContactController::class, 's
 
 Route::post('/admin/add-product', [\App\Http\Controllers\ProductsController::class, 'addProduct']);
 
+Route::get('/admin/products', [\App\Http\Controllers\ProductsController::class, 'getAllProducts']);
+
 
 
 
